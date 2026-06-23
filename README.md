@@ -1,0 +1,1 @@
+Dispatch is a reference implementation for turning a single capability into a CLI command, MCP tool, and MCP server. The example sends Telegram messages, but the pattern works for any action.
