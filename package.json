@@ -1,0 +1,17 @@
+{
+    "name": "dispatch-workspace",
+    "private": true,
+    "type": "module",
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "@types/node": "^26.0.0",
+        "typescript": "^6.0.3"
+    },
+    "scripts": {
+        "typecheck:cli": "tsc --noEmit -p packages/cli/tsconfig.json",
+        "build:cli": "tsc -p packages/cli/tsconfig.json",
+        "dev:cli": "bun run packages/cli/src/index.ts"
+    }
+}
