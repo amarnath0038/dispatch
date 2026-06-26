@@ -1,4 +1,5 @@
 import { Command } from "commander";
+import { sendTelegramMessage } from "dispatch-core"
 
 const program = new Command();
 
@@ -36,34 +37,21 @@ program
             process.exit(1);
         }
 
-        const response = await fetch(
-            `https://api.telegram.org/bot${token}/sendMessage`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: message,
-                })
-            }
-        )  
-        const data = (await response.json()) as TelegramResponse;
-        
-        if (!response.ok || !data.ok) {
-            const why = data.description || response.statusText;
-            console.log(`Telegram API request failed: ${why}`)
+        try {
+            const result = await sendTelegramMessage({
+                botToken: token,
+                chatId,
+                message
+            });
+
+            console.log(`Telegram message successfully sent to chat ${chatId}`);
+            console.log(`Telegram message: ${message}`);
+
+        } catch (err) {
+            const why = err instanceof Error ? err.message : String(err);
+            console.error(`Telegram request failed: ${why}`);
             process.exit(1);
         }
-
-        const messageId = data.result?.message_id;
-        console.log(`Telegram message sent successfully to chat: ${chatId}`);
-
-        if (messageId !== undefined) {
-            console.log(`Telegram message ID: ${messageId}`)
-        }
-
     });
 
 program.parseAsync(process.argv).catch((err: any) => {
@@ -71,4 +59,4 @@ program.parseAsync(process.argv).catch((err: any) => {
     process.exit(1);
 });
 
-// URL to check for chatId:  https://api.telegram.org/bot/<YOUR_TOKEN>/getUpdates
+// URL to check for chatId:  https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates
