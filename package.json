@@ -12,6 +12,7 @@
     "scripts": {
         "typecheck:cli": "tsc --noEmit -p packages/cli/tsconfig.json",
         "build:cli": "tsc -p packages/cli/tsconfig.json",
-        "dev:cli": "bun run packages/cli/src/index.ts"
+        "dev:cli": "bun run packages/cli/src/index.ts",
+        "dev:mcp-local": "bun run packages/mcp-local/src/index.ts"
     }
 }
