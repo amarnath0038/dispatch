@@ -1,0 +1,13 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "mcp": {
+        "dispatch": {
+            "type": "local",
+            "command": ["bun", "run", "dev:mcp-local"],
+            "environment": {
+                "TELEGRAM_BOT_TOKEN": "{env: TELEGRAM_BOT_TOKEN}"
+            },
+            "enabled": true
+        }
+    }
+}
