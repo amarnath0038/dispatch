@@ -1,11 +1,14 @@
 {
-  "name": "dispatch",
+  "name": "@amarnath00/dispatch",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "tsdown"
+  },
   "dependencies": {
     "commander": "^15.0.0",
-    "dispatch-core": "workspace:*",
+    "@amarnath00/dispatch-core": "workspace:*",
     "zod": "^4.4.3"
   }
 }

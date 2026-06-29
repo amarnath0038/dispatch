@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { z } from "zod";
-import { sendTelegramMessage } from "dispatch-core";
+import { sendTelegramMessage } from "@amarnath00/dispatch-core";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";

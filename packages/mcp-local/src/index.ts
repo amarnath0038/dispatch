@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { sendTelegramMessage, telegramMessageInputSchema } from "dispatch-core";
+import { sendTelegramMessage, telegramMessageInputSchema } from "@amarnath00/dispatch-core";
 
 const server = new McpServer({
   name: "dispatch-local",

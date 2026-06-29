@@ -12,6 +12,9 @@
     "lint": "oxlint . --deny-warnings",
     "lint:fix": "oxlint . --fix",
     "typecheck": "tsc --noEmit",
+    "build:core": "bun run --filter @amarnath00/dispatch-core build",
+    "build:cli": "bun run --filter @amarnath00/dispatch build",
+    "build:mcp-local": "bun run --filter @amarnath00/dispatch-mcp build",
     "dev:cli": "bun run packages/cli/src/index.ts",
     "dev:mcp-local": "bun run packages/mcp-local/src/index.ts",
     "dev:mcp-remote": "bun run apps/mcp-remote/src/index.ts"

@@ -16,49 +16,46 @@
       "name": "dispatch-mcp-remote",
       "version": "0.0.0",
       "dependencies": {
+        "@amarnath00/dispatch-core": "workspace:*",
         "@clerk/backend": "^3.8.4",
         "@clerk/mcp-tools": "^0.5.0",
         "@modelcontextprotocol/sdk": "^1.29.0",
-        "dispatch-core": "workspace:*",
         "hono": "^4.12.27",
-      },
-      "devDependencies": {
-        "@types/node": "^26.0.1",
       },
     },
     "packages/cli": {
-      "name": "dispatch",
+      "name": "@amarnath00/dispatch",
       "version": "0.0.0",
       "dependencies": {
+        "@amarnath00/dispatch-core": "workspace:*",
         "commander": "^15.0.0",
-        "dispatch-core": "workspace:*",
         "zod": "^4.4.3",
-      },
-      "devDependencies": {
-        "@types/node": "^26.0.0",
       },
     },
     "packages/core": {
-      "name": "dispatch-core",
+      "name": "@amarnath00/dispatch-core",
       "version": "0.0.0",
       "dependencies": {
         "zod": "^4.4.3",
       },
     },
     "packages/mcp-local": {
-      "name": "dispatch-mcp",
+      "name": "@amarnath00/dispatch-mcp",
       "version": "0.0.0",
       "dependencies": {
+        "@amarnath00/dispatch-core": "workspace:*",
         "@modelcontextprotocol/sdk": "^1.29.0",
-        "dispatch-core": "workspace:*",
         "zod": "^4.4.3",
-      },
-      "devDependencies": {
-        "@types/node": "^26.0.1",
       },
     },
   },
   "packages": {
+    "@amarnath00/dispatch": ["@amarnath00/dispatch@workspace:packages/cli"],
+
+    "@amarnath00/dispatch-core": ["@amarnath00/dispatch-core@workspace:packages/core"],
+
+    "@amarnath00/dispatch-mcp": ["@amarnath00/dispatch-mcp@workspace:packages/mcp-local"],
+
     "@babel/generator": ["@babel/generator@8.0.0", "", { "dependencies": { "@babel/parser": "^8.0.0", "@babel/types": "^8.0.0", "@jridgewell/gen-mapping": "^0.3.12", "@jridgewell/trace-mapping": "^0.3.28", "@types/jsesc": "^2.5.0", "jsesc": "^3.0.2" } }, "sha512-NT9NrVwJsbSV6Y2FSstWa71EETOnzrjkL5/wX3D2mYHtKM+qvqB1DvR4D0Setb/gDBsHzRICifwEWMO8CnTF6g=="],
 
     "@babel/helper-string-parser": ["@babel/helper-string-parser@8.0.0", "", {}, "sha512-6mJgmFFFIIO82vvoLt9XtRC7/TkzXfts1t/SpRX4IHSzMgqoPYCWesVu1udUPUWioAE/2fcG6WuI8zrkE1gwrg=="],
@@ -262,12 +259,6 @@
     "depd": ["depd@2.0.0", "", {}, "sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw=="],
 
     "dequal": ["dequal@2.0.3", "", {}, "sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA=="],
-
-    "dispatch": ["dispatch@workspace:packages/cli"],
-
-    "dispatch-core": ["dispatch-core@workspace:packages/core"],
-
-    "dispatch-mcp": ["dispatch-mcp@workspace:packages/mcp-local"],
 
     "dispatch-mcp-remote": ["dispatch-mcp-remote@workspace:apps/mcp-remote"],
 
@@ -482,12 +473,6 @@
     "zod-to-json-schema": ["zod-to-json-schema@3.25.2", "", { "peerDependencies": { "zod": "^3.25.28 || ^4" } }, "sha512-O/PgfnpT1xKSDeQYSCfRI5Gy3hPf91mKVDuYLUHZJMiDFptvP41MSnWofm8dnCm0256ZNfZIM7DSzuSMAFnjHA=="],
 
     "body-parser/content-type": ["content-type@2.0.0", "", {}, "sha512-j/O/d7GcZCyNl7/hwZAb606rzqkyvaDctLmckbxLzHvFBzTJHuGEdodATcP3yIRoDrLHkIATJuvzbFlp/ki2cQ=="],
-
-    "dispatch/@types/node": ["@types/node@26.0.1", "", { "dependencies": { "undici-types": "~8.3.0" } }, "sha512-fc3KiUoBt6kie0N9bIW3E47vZsuaMf0PM2AaUpLCLT0s/LvX1nxAim6Fc049cNxODPpGm6qRAuUOB86SkRuPQw=="],
-
-    "dispatch-mcp/@types/node": ["@types/node@26.0.1", "", { "dependencies": { "undici-types": "~8.3.0" } }, "sha512-fc3KiUoBt6kie0N9bIW3E47vZsuaMf0PM2AaUpLCLT0s/LvX1nxAim6Fc049cNxODPpGm6qRAuUOB86SkRuPQw=="],
-
-    "dispatch-mcp-remote/@types/node": ["@types/node@26.0.1", "", { "dependencies": { "undici-types": "~8.3.0" } }, "sha512-fc3KiUoBt6kie0N9bIW3E47vZsuaMf0PM2AaUpLCLT0s/LvX1nxAim6Fc049cNxODPpGm6qRAuUOB86SkRuPQw=="],
 
     "type-is/content-type": ["content-type@2.0.0", "", {}, "sha512-j/O/d7GcZCyNl7/hwZAb606rzqkyvaDctLmckbxLzHvFBzTJHuGEdodATcP3yIRoDrLHkIATJuvzbFlp/ki2cQ=="],
   }
