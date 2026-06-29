@@ -17,7 +17,10 @@
     "build:mcp-local": "bun run --filter @amarnath00/dispatch-mcp build",
     "dev:cli": "bun run packages/cli/src/index.ts",
     "dev:mcp-local": "bun run packages/mcp-local/src/index.ts",
-    "dev:mcp-remote": "bun run apps/mcp-remote/src/index.ts"
+    "dev:mcp-remote": "bun run apps/mcp-remote/src/index.ts",
+    "release:pack:core": "bun run --filter @amarnath00/dispatch-core pack:dry",
+    "release:pack:cli": "bun run --filter @amarnath00/dispatch pack:dry",
+    "release:pack:mcp-local": "bun run --filter @amarnath00/dispatch-mcp pack:dry"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

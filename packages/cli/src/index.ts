@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from "commander";
 import { z } from "zod";
 import { sendTelegramMessage } from "@amarnath00/dispatch-core";
