@@ -1,11 +1,10 @@
 {
-    "compilerOptions": {
-        "target": "ES2022",
-        "module": "ESNEXT",
-        "moduleResolution": "Bundler",
-        "strict": true,
-        "types": ["node"],
-        "skipLibCheck": true
-    },
-    
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNEXT",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "types": ["node"],
+    "skipLibCheck": true
+  }
 }

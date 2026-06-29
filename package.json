@@ -1,20 +1,26 @@
 {
-    "name": "dispatch-workspace",
-    "private": true,
-    "type": "module",
-    "workspaces": [
-        "apps/*",
-        "packages/*"
-    ],
-    "devDependencies": {
-        "@types/node": "^26.0.0",
-        "typescript": "^6.0.3"
-    },
-    "scripts": {
-        "typecheck:cli": "tsc --noEmit -p packages/cli/tsconfig.json",
-        "build:cli": "tsc -p packages/cli/tsconfig.json",
-        "dev:cli": "bun run packages/cli/src/index.ts",
-        "dev:mcp-local": "bun run packages/mcp-local/src/index.ts",
-        "dev:mcp-remote": "bun run apps/mcp-remote/src/index.ts"
-    }
+  "name": "dispatch-workspace",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "format": "oxfmt . --write",
+    "format:check": "oxfmt . --check",
+    "lint": "oxlint . --deny-warnings",
+    "lint:fix": "oxlint . --fix",
+    "typecheck": "tsc --noEmit",
+    "dev:cli": "bun run packages/cli/src/index.ts",
+    "dev:mcp-local": "bun run packages/mcp-local/src/index.ts",
+    "dev:mcp-remote": "bun run apps/mcp-remote/src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "oxfmt": "^0.56.0",
+    "oxlint": "^1.71.0",
+    "tsdown": "^0.22.3",
+    "typescript": "^6.0.3"
+  }
 }

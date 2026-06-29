@@ -1,19 +1,16 @@
 {
-    "name": "dispatch-mcp-remote",
-    "version": "0.0.0",
-    "private": true,
-    "type": "module",
-    "exports": {
-        ".": "./src/index.ts"
-    },
-    "devDependencies": {
-        "@types/node": "^26.0.1"
-    },
-    "dependencies": {
-        "@clerk/backend": "^3.8.4",
-        "@clerk/mcp-tools": "^0.5.0",
-        "@modelcontextprotocol/sdk": "^1.29.0",
-        "dispatch-core": "workspace:*",
-        "hono": "^4.12.27"
-    }
+  "name": "dispatch-mcp-remote",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@clerk/backend": "^3.8.4",
+    "@clerk/mcp-tools": "^0.5.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "dispatch-core": "workspace:*",
+    "hono": "^4.12.27"
+  }
 }

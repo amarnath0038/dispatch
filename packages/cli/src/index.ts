@@ -3,50 +3,37 @@ import { z } from "zod";
 import { sendTelegramMessage } from "dispatch-core";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
-import {
-    existsSync,
-    mkdirSync,
-    readFileSync,
-    writeFileSync
-} from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const program = new Command();
 
 const configPath = join(homedir(), ".config", "dispatch", "config.json");
 
 const cliConfigSchema = z.object({
-    telegramBotToken: z.string().min(1).optional()
-})
+    telegramBotToken: z.string().min(1).optional(),
+});
 
 const writeTelegramBotToken = (token: string) => {
     mkdirSync(dirname(configPath), { recursive: true });
-    writeFileSync(configPath, `${JSON.stringify({ telegramBotToken: token }, null, 2)}\n`, { mode: 0o600 })
-}
+    writeFileSync(configPath, `${JSON.stringify({ telegramBotToken: token }, null, 2)}\n`, {
+        mode: 0o600,
+    });
+};
 
 const getTelegramBotToken = () => {
     if (!existsSync(configPath)) {
-        throw new Error("Telegram bot token is required. Run `dispatch init` ")
+        throw new Error("Telegram bot token is required. Run `dispatch init` ");
     }
 
     const config = cliConfigSchema.parse(JSON.parse(readFileSync(configPath, "utf-8")));
     const token = config.telegramBotToken;
     if (!token) {
-        throw new Error("Telegram bot token is required. Run `dispatch init` ")
+        throw new Error("Telegram bot token is required. Run `dispatch init` ");
     }
-    return token
-}
+    return token;
+};
 
-type TelegramResponse = {
-    ok: boolean,
-    result?: {
-        message_id?: string
-    },
-    description?: string
-}
-
-program
-    .name("dispatch")
-    .description("A CLI tool for managing your Telegram bot")
+program.name("dispatch").description("A CLI tool for managing your Telegram bot");
 
 program
     .command("init")
@@ -55,8 +42,8 @@ program
     .requiredOption("--telegram-bot-token <botToken>", "Telegram bot token")
     .action(async (options: { telegramBotToken: string }) => {
         writeTelegramBotToken(options.telegramBotToken);
-        console.log(`Saved Dispatch CLI config to ${configPath}`)
-    })
+        console.log(`Saved Dispatch CLI config to ${configPath}`);
+    });
 program
     .command("telegram")
     .description("Send a Telegram message")
@@ -66,11 +53,11 @@ program
         const result = await sendTelegramMessage({
             botToken: getTelegramBotToken(),
             chatId,
-            message
+            message,
         });
 
-        // The reason fo logging in JSON is bcz agents work best with JSON 
-        console.log(JSON.stringify(result))
+        // The reason fo logging in JSON is bcz agents work best with JSON
+        console.log(JSON.stringify(result));
     });
 
 await program.parseAsync(process.argv).catch((err: any) => {
