@@ -4,6 +4,7 @@
 
 Dispatch is an open-source toolkit that exposes the same business logic through a CLI, a local MCP server, a remote MCP server, and AI Skills. It demonstrates how to build reusable agent tooling without duplicating business logic.
 
+#### Docs:  https://dispatch-docs.amarworks.xyz/
 
 ## Quick Start
 
